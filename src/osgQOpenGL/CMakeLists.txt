@@ -1,7 +1,7 @@
 IF ( Qt6Widgets_FOUND )
     include(GenerateExportHeader)
 
-    SET(LIB_NAME osgQOpenGL)
+    SET(LIB_NAME osgQt6OpenGL)
     SET(HEADER_INSTALL_DIR osgQOpenGL)
 
     set(CMAKE_INCLUDE_CURRENT_DIR yes)
@@ -50,6 +50,6 @@ IF ( Qt6Widgets_FOUND )
 
     SETUP_LIBRARY(${LIB_NAME})
 
-    generate_export_header(${LIB_NAME} EXPORT_FILE_NAME "Export")
+    generate_export_header(${LIB_NAME} BASE_NAME "osgQOpenGL" EXPORT_FILE_NAME "Export")
 
 ENDIF()
