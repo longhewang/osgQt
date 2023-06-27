@@ -257,7 +257,7 @@ void OSGRenderer::mousePressEvent(QMouseEvent* event)
         button = 1;
         break;
 
-    case Qt::MidButton:
+    case Qt::MiddleButton:
         button = 2;
         break;
 
@@ -289,7 +289,7 @@ void OSGRenderer::mouseReleaseEvent(QMouseEvent* event)
         button = 1;
         break;
 
-    case Qt::MidButton:
+    case Qt::MiddleButton:
         button = 2;
         break;
 
@@ -321,7 +321,7 @@ void OSGRenderer::mouseDoubleClickEvent(QMouseEvent* event)
         button = 1;
         break;
 
-    case Qt::MidButton:
+    case Qt::MiddleButton:
         button = 2;
         break;
 
@@ -353,13 +353,13 @@ void OSGRenderer::mouseMoveEvent(QMouseEvent* event)
 void OSGRenderer::wheelEvent(QWheelEvent* event)
 {
     setKeyboardModifiers(event);
-    m_osgWinEmb->getEventQueue()->mouseMotion(event->x() * m_windowScale,
-                                              event->y() * m_windowScale);
+    m_osgWinEmb->getEventQueue()->mouseMotion(event->position().x() * m_windowScale,
+                                              event->position().y() * m_windowScale);
     m_osgWinEmb->getEventQueue()->mouseScroll(
-        event->orientation() == Qt::Vertical ?
-        (event->delta() > 0 ? osgGA::GUIEventAdapter::SCROLL_UP :
+        event->angleDelta().y() != 0 ?
+        (event->angleDelta().y() > 0 ? osgGA::GUIEventAdapter::SCROLL_UP :
          osgGA::GUIEventAdapter::SCROLL_DOWN) :
-        (event->delta() > 0 ? osgGA::GUIEventAdapter::SCROLL_LEFT :
+        (event->angleDelta().x() > 0 ? osgGA::GUIEventAdapter::SCROLL_LEFT :
          osgGA::GUIEventAdapter::SCROLL_RIGHT));
 }
 

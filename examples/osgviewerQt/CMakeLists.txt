@@ -12,13 +12,13 @@ SET(TARGET_LIBRARIES_VARS
 )
 
 
-SET (EXAMPLE_NAME osgviewerQt )
+SET (EXAMPLE_NAME osgviewerQt5 )
 
 SETUP_EXAMPLE( ${EXAMPLE_NAME} )
 
 SET(TARGET_LIBRARIES Qt5::Widgets Qt5::OpenGL)
 
-target_link_libraries(example_${EXAMPLE_NAME} osgQOpenGL)
+target_link_libraries(example_${EXAMPLE_NAME} osgQt5OpenGL)
 
 qt5_use_modules( example_${EXAMPLE_NAME} Widgets OpenGL )
 
