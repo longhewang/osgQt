@@ -20,5 +20,5 @@ SET(TARGET_LIBRARIES Qt5::Widgets Qt5::OpenGL)
 
 target_link_libraries(example_${EXAMPLE_NAME} osgQOpenGL)
 
-qt5_use_modules( example_${EXAMPLE_NAME} Widgets OpenGL )
+# qt5_use_modules( example_${EXAMPLE_NAME} Widgets OpenGL )
 

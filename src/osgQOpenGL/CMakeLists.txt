@@ -1,4 +1,4 @@
-IF ( Qt5Widgets_FOUND )
+IF ( Qt6Widgets_FOUND )
     include(GenerateExportHeader)
 
     SET(LIB_NAME osgQOpenGL)
@@ -14,7 +14,7 @@ IF ( Qt5Widgets_FOUND )
         ${HEADER_PATH}/OSGRenderer
     )
 
-    qt5_wrap_cpp(SOURCES_H_MOC ${SOURCE_H} #[[OPTIONS ${MOC_OPTIONS}]])
+    qt_wrap_cpp(SOURCES_H_MOC ${SOURCE_H} #[[OPTIONS ${MOC_OPTIONS}]])
 
     SET(TARGET_H
         ${SOURCE_H}
@@ -38,7 +38,7 @@ IF ( Qt5Widgets_FOUND )
         ${OPENSCENEGRAPH_VERSIONINFO_RC}
     )
 
-    SET(TARGET_LIBRARIES Qt5::Widgets Qt5::OpenGL)
+    SET(TARGET_LIBRARIES Qt6::Widgets Qt6::OpenGL Qt6::OpenGLWidgets )
     SET(TARGET_LIBRARIES_VARS
         OSG_LIBRARY
         OSGUTIL_LIBRARY

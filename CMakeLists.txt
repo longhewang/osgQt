@@ -423,8 +423,10 @@ INCLUDE(OsgMacroUtils)
 # via cmake -DDESIRED_QT_VERSION=5
 # QUIET option disables messages if the package cannot be found.
 
-FIND_PACKAGE(Qt5 COMPONENTS Widgets OpenGL REQUIRED)
-
+FIND_PACKAGE(Qt6 COMPONENTS Widgets OpenGL OpenGLWidgets REQUIRED)
+INCLUDE_DIRECTORIES(${Qt6Gui_INCLUDE_DIRS})
+INCLUDE_DIRECTORIES(${Qt6Widgets_INCLUDE_DIRS})
+INCLUDE_DIRECTORIES(${Qt6OpenGLWidgets_INCLUDE_DIRS})
 
 ################################################################################
 # Create bin and lib directories if required
